@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div>面试第8题</div>
+</body>
+</html>
+<script>
+    var arr = [2,12,30,34,40,55,59,102,200]
+
+  	function findIndex(el,arr){
+  		var tempArr;
+  		if(arr.length>=1){
+  			if(arr[0] == el){
+					return 0;
+				}
+			if(arr[arr.length-1] == el){
+					return arr.length-1;
+			}
+  			var middle = Math.ceil(arr.length/2)
+  			if(arr[middle] == el){
+  				return middle
+  			}else if(arr[middle]>el){
+  				tempArr = arr.slice(0,middle)
+  				return findIndex(el,tempArr)
+  			}else{
+  				tempArr = arr.slice(middle,arr.length-1)
+  				return middle + findIndex(el,tempArr)
+  			}
+  		}else{
+  			return -1
+  		}
+  	}
+  console.log(findIndex(40,arr))//4
+
+</script>

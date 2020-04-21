@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>面试第5题</div>
+</body>
+
+</html>
+<script>
+    var nub = [2384235232]
+    function formatNumber(num) {
+        var decimalPart = '';
+        num = num.toString();
+        if (num.indexOf('.') != -1) {
+            decimalPart = '.' + num.split('.')[1];
+            num = parseInt(num.split('.')[0]);
+        }
+        var array = num.toString().split('');
+        var index = -3;
+        while (array.length + index > 0) {
+            array.splice(index, 0, ',');
+            index -= 4;
+        }
+        return array.join('') + decimalPart;
+    };
+    console.log(formatNumber(nub));
+
+
+</script>
